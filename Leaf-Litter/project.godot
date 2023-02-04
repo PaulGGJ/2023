@@ -35,11 +35,6 @@ _global_script_class_icons={
 config/name="Leaf Litter"
 config/icon="res://icon.png"
 
-[display]
-
-window/size/width=2000
-window/size/height=2000
-
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
