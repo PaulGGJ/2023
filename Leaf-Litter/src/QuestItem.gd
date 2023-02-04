@@ -1,12 +1,18 @@
 extends Node
 class_name QuestItem
 
+enum HUNT_DIR { SOUTH, WEST, EAST }
+const direction_name = { HUNT_DIR.SOUTH: "South", HUNT_DIR.WEST: "West", HUNT_DIR.EAST: "East" }
+
 var name_nature
 var name_industry
 var descr_nature
+var direction : int
 
 func _init(item_id):
 	load_from_file(item_id)
+func set_direction(dir : int):
+	direction = dir
 
 
 # File stuff
