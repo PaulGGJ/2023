@@ -27,9 +27,10 @@ func reload():
 	var template = get_node("QuestItem") # before it's removed
 	Util.deleteExtraChildren(self, 1)
 	for q in quests:
-		current_node = template.duplicate()
-		node("Name").text = q.name_nature
+		#current_node = template.duplicate()
+		#node("Name").text = q.name_nature
 		add_child(current_node)
 
 func node(s):
-	return current_node.get_node(s)
+	#return current_node.get_node(s)
+	pass
