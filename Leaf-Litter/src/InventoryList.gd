@@ -2,17 +2,17 @@ extends VBoxContainer
 class_name InventoryList
 
 var found_ids = []
-var found_items = []
+var found_items = {}
 
 func _ready():
 	add_item(3)
 	reload()
 
 func add_item(i : int):
-	#if not found_ids.contains(i):
-	#	found_ids.push(i)
-	#	var item = QuestItem.new(i)
-	#	found_items[i] = item
+	if not found_ids.has(i):
+		found_ids.push_back(i)
+		var item = QuestItem.new(i)
+		found_items[i] = item
 	reload()
 
 var current_node
@@ -25,4 +25,4 @@ func reload():
 		add_child(current_node)
 
 func node(s):
-	return get_node(s)
+	return current_node.get_node(s)
