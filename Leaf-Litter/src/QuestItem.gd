@@ -46,10 +46,10 @@ static func get_count():
 	var file = File.new()
 	if not file.open(FILE_PATH, file.READ) == OK:
 		return
-	file.seek(0)
-	# Parse lines
-	var line_count = 0
-	var current_line : String
-	#while !file.eof_reached():
-	#	line_count += 1 # Human-readable, so first line is 1
-	return line_count
+	var lineCount = 0
+	while !file.eof_reached():
+		lineCount = lineCount + 1
+		file.get_line()
+	
+	print("lineCount", lineCount)
+	return lineCount
