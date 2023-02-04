@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/squirrel.png-959151469f574acb41e80add06d1c661.stex"
+path="res://.import/squirrel.png-d64d186222679863edb97ca8c6d35d9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/squirrel.png"
-dest_files=[ "res://.import/squirrel.png-959151469f574acb41e80add06d1c661.stex" ]
+source_file="res://assets/squirrel.png"
+dest_files=[ "res://.import/squirrel.png-d64d186222679863edb97ca8c6d35d9c.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

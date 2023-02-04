@@ -12,7 +12,13 @@ func _physics_process(delta):
 	#print ("left %s right %s up %s down %s" % [left, right, up, down])
 	if left != right or up != down:
 		var _junk = move_and_slide(Vector2(right - left, down - up) * SPEED * delta)
-	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.collider
+		var layer = collider.get_collision_layer()
+		if layer == 2:
+			collider.queue_free()
+
 	# Animate
 	if right or left:
 		player.frame = 0

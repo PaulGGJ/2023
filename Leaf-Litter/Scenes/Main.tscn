@@ -839,12 +839,6 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
-borders = null
-walker_left_start_pos = null
-walker_down_start_pos = null
-walker_right_start_pos = null
-room_min = null
-room_max = null
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 2, 2 )

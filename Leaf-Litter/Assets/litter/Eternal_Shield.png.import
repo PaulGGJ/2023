@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Eternal_Shield.png-e547eabaaec7b7eccefa144e67c6a460.stex"
+path="res://.import/Eternal_Shield.png-e3024bc9eaa15255a1e2c44a6767531c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/litter/Eternal_Shield.png"
-dest_files=[ "res://.import/Eternal_Shield.png-e547eabaaec7b7eccefa144e67c6a460.stex" ]
+source_file="res://assets/litter/Eternal_Shield.png"
+dest_files=[ "res://.import/Eternal_Shield.png-e3024bc9eaa15255a1e2c44a6767531c.stex" ]
 
 [params]
 
