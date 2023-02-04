@@ -8,8 +8,13 @@ extends Node2D
 
 # borders defines the bounds of the generated area: 
 #	first 2 numbers is top left corner position and second 2 numbers is bottom right position
-export var borders = Rect2(1, 1, 38, 21) 
-export var walker_start_pos = Vector2(19, 11)
+export var borders = Rect2(1, 1, 49, 19) 
+#export var walker_start_pos = Vector2(16, 2)
+export var walker_left_start_pos = Vector2(23, 1)
+export var walker_down_start_pos = Vector2(25, 1)
+export var walker_right_start_pos = Vector2(27, 1)
+export var room_min = int(3)
+export var room_max = int(5)
 var startPosition = Vector2()
 
 onready var tileMap = $TileMap
@@ -24,10 +29,16 @@ func _ready():
 	generate_level()
 
 func generate_level():
-	var walker = Walker.new(walker_start_pos, borders)
+#	var walker = Walker.new(walker_start_pos, borders, room_min, room_max)
+	var walker = Walker.new(walker_left_start_pos, borders, room_min, room_max)
 #	var walker = Walker.new(Vector2(19, 11), borders)
 	#walk(roomsize)
-	var map = walker.walk(200)
+#	var map = walker.walk(200)
+	var map = walker.walk(75, Vector2.LEFT)
+	walker = Walker.new(walker_down_start_pos, borders, room_min, room_max)
+	map += walker.walk(75, Vector2.DOWN)
+	walker = Walker.new(walker_right_start_pos, borders, room_min, room_max)
+	map += walker.walk(75, Vector2.RIGHT)
 	
 	walker.queue_free()
 	for location in map:
