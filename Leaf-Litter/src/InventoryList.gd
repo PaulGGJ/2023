@@ -9,10 +9,10 @@ func _ready():
 	reload()
 
 func add_item(i : int):
-	if not found_ids.contains(i):
-		found_ids.push(i)
-		var item = QuestItem.new(i)
-		found_items[i] = item
+	#if not found_ids.contains(i):
+	#	found_ids.push(i)
+	#	var item = QuestItem.new(i)
+	#	found_items[i] = item
 	reload()
 
 var current_node
@@ -25,4 +25,4 @@ func reload():
 		add_child(current_node)
 
 func node(s):
-	return current_node.get_node(s)
+	return get_node(s)

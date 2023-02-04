@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Camera.gd" type="Script" id=1]
 [ext_resource path="res://src/QuestList.gd" type="Script" id=2]
 [ext_resource path="res://assets/squirrel.png" type="Texture" id=3]
+[ext_resource path="res://src/InventoryList.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -95,7 +96,7 @@ margin_left = 498.0
 margin_right = 598.0
 margin_bottom = 400.0
 rect_min_size = Vector2( 100, 25 )
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="Heading" type="Control" parent="GUI/Columns/InventoryList"]
 margin_right = 100.0
