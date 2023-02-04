@@ -83,14 +83,13 @@ static func parseGenericCSV(file):
 				list[list.size()] = dict
 	return list
 
-static func XchooseY(theArray, Y):
+static func XchooseY(X, Y):
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var size = theArray.size()
 	var chosen = 0
 	var rv = []
 	while(chosen < Y):
-		var letsTry = rng.randi_range(0, size -1)
+		var letsTry = rng.randi_range(0, X)
 		var repeat = false
 		for x in rv:
 			if x == letsTry:

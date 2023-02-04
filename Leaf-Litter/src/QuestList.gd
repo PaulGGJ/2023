@@ -13,17 +13,14 @@ func _ready():
 		quests.push_back(item)
 	# Display
 	reload()
-	
 
 func randomize_quests():
 	var quest_count = QuestItem.get_count()
-	#stub
-	quest_ids.push_back(5)
-	quest_ids.push_back(2)
-	quest_ids.push_back(3)
-	# replace with something like
-	#quest_ids = Util.x_choose_y(1, quest_count)
+	
+	var tempQ = Util.XchooseY(quest_count-1, 3)
 
+	for q in tempQ:
+		quest_ids.push_back(q)
 
 var current_node
 func reload():
