@@ -8,6 +8,11 @@ var descr_nature
 func _init(item_id):
 	load_from_file(item_id)
 
+
+# File stuff
+
+const FILE_PATH = "assets/quest_items.txt"
+
 #Example format
 #Tall Staff (straw) - Perhaps for fighting, or guiding their people through the land.
 #Warrior’s Boat (shoe) - Washed up on the shore. Surely they must have crossed the pond in this craft.
@@ -15,8 +20,7 @@ func _init(item_id):
 func load_from_file(line_requested : int):
 	# Open file
 	var file = File.new()
-	var path = "assets/quest_items.txt"
-	if not file.open(path, file.READ) == OK:
+	if not file.open(FILE_PATH, file.READ) == OK:
 		return
 	file.seek(0)
 	# Parse lines
@@ -37,4 +41,15 @@ func load_from_file(line_requested : int):
 	print("name %s aka %s: %s" % [name_nature, name_industry, descr_nature])
 
 
-
+static func get_count():
+	# Open file
+	var file = File.new()
+	if not file.open(FILE_PATH, file.READ) == OK:
+		return
+	file.seek(0)
+	# Parse lines
+	var line_count = 0
+	var current_line : String
+	#while !file.eof_reached():
+	#	line_count += 1 # Human-readable, so first line is 1
+	return line_count

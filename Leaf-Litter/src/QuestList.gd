@@ -16,10 +16,13 @@ func _ready():
 	
 
 func randomize_quests():
+	var quest_count = QuestItem.get_count()
 	#stub
 	quest_ids.push_back(5)
 	quest_ids.push_back(2)
 	quest_ids.push_back(3)
+	# replace with something like
+	#quest_ids = Util.x_choose_y(1, quest_count)
 
 
 var current_node

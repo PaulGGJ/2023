@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/squirrel.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/PlayerAndGUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/terrainTemp.png" type="Texture" id=2]
-[ext_resource path="res://src/Camera.gd" type="Script" id=3]
-[ext_resource path="res://src/QuestList.gd" type="Script" id=4]
 
 [sub_resource type="TileSet" id=2]
 0/name = "terrainTemp.png 0"
@@ -30,8 +28,6 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="CircleShape2D" id=1]
-
 [node name="Node2D" type="Node2D"]
 
 [node name="Paths" type="TileMap" parent="."]
@@ -39,74 +35,4 @@ tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 65537, 0, 0, 65538, 0, 0, 131074, 0, 0, 196611, 0, 0, 262148, 0, 0, 262149, 0, 0, 327686, 0, 0, 393223, 0, 0, 393224, 0, 0, 458761, 0, 0, 458762, 0, 0, 524299, 0, 0 )
 
-[node name="Camera" type="KinematicBody2D" parent="Paths"]
-script = ExtResource( 3 )
-
-[node name="Camera2D" type="Camera2D" parent="Paths/Camera"]
-current = true
-zoom = Vector2( 0.5, 0.5 )
-
-[node name="Player" type="Sprite" parent="Paths/Camera"]
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
-hframes = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Paths/Camera"]
-scale = Vector2( 3.25, 3.25 )
-shape = SubResource( 1 )
-
-[node name="GUI" type="Control" parent="Paths/Camera"]
-margin_left = -256.0
-margin_top = -150.0
-margin_right = -216.0
-margin_bottom = -110.0
-
-[node name="Columns" type="HBoxContainer" parent="Paths/Camera/GUI"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="QuestList" type="VBoxContainer" parent="Paths/Camera/GUI/Columns"]
-margin_right = 100.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 100, 25 )
-script = ExtResource( 4 )
-
-[node name="Heading" type="Control" parent="Paths/Camera/GUI/Columns/QuestList"]
-margin_right = 100.0
-margin_bottom = 15.0
-rect_min_size = Vector2( 100, 15 )
-
-[node name="ColorRect" type="ColorRect" parent="Paths/Camera/GUI/Columns/QuestList/Heading"]
-margin_right = 100.0
-margin_bottom = 20.0
-color = Color( 0.611765, 0.509804, 0.286275, 1 )
-
-[node name="Name" type="Label" parent="Paths/Camera/GUI/Columns/QuestList/Heading"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 73.0
-margin_bottom = 14.0
-rect_scale = Vector2( 0.8, 0.8 )
-custom_colors/font_color = Color( 0.180392, 0.054902, 0, 1 )
-text = "My Quests:"
-
-[node name="QuestItem" type="Control" parent="Paths/Camera/GUI/Columns/QuestList"]
-margin_top = 19.0
-margin_right = 100.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 100, 15 )
-
-[node name="ColorRect" type="ColorRect" parent="Paths/Camera/GUI/Columns/QuestList/QuestItem"]
-margin_right = 100.0
-margin_bottom = 20.0
-color = Color( 0.721569, 0.6, 0.341176, 1 )
-
-[node name="Name" type="Label" parent="Paths/Camera/GUI/Columns/QuestList/QuestItem"]
-margin_left = 10.0
-margin_top = 5.0
-margin_right = 78.0
-margin_bottom = 31.0
-rect_scale = Vector2( 0.8, 0.8 )
-custom_colors/font_color = Color( 0.180392, 0.054902, 0, 1 )
-text = "Test of Faith
-"
+[node name="PlayerAndGUI" parent="Paths" instance=ExtResource( 1 )]
