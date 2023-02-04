@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/InventoryList.gd"
 }, {
-"base": "Node",
+"base": "StaticBody2D",
 "class": "QuestItem",
 "language": "GDScript",
 "path": "res://src/QuestItem.gd"
