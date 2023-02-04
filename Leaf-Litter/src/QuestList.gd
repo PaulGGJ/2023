@@ -1,22 +1,30 @@
 extends VBoxContainer
 class_name QuestList
 
+var ScavengerItems
+
 const HUNT_SIZE = 8
 var quest_ids = []
 var quests = {}
 
 func _ready():
+	ScavengerItems = get_tree().get_root().find_node("ScavengerItems", true, false)
+	var quest_scene = load("res://Scenes/QuestItem.tscn")
 	# Fill quest data
 	randomize_quests()
 	var count = 0 # Track this so we put them in different directions
 	for q in quest_ids:
-		print("quest id %d" % q)
+		#print("quest id %d" % q)
+		var obj = quest_scene.instance()
 		var item = QuestItem.new(q)
+		item.add_object(obj)
 		item.set_direction(count % 3)
 		quests[item] = item
+		ScavengerItems.add_child(obj)
 		count += 1
 	# Display
 	reload()
+	
 
 func randomize_quests():
 	var quest_count = QuestItem.get_count()

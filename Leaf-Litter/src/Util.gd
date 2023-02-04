@@ -66,6 +66,25 @@ func deleteExtraChildren(grp, numToKeep : int):
 	while grp.get_child_count() > numToKeep:
 		grp.remove_child(grp.get_child(numToKeep))
 
+
+
+static func getImage(fname):
+	var img = Image.new()
+	var f = File.new()
+	if f.open(fname, f.READ) == OK:
+		img.load(fname)
+	else:
+		pass#Game.reportError(Game.CAT.FILE, "Error reading image file " + fname)
+	f.close()
+	return img
+
+# https://godotengine.org/qa/30210/how-do-load-resource-works
+static func getTexture(fname):
+	var img = getImage(fname)
+	var tex = ImageTexture.new()
+	tex.create_from_image(img)
+	return tex
+
 # ===== File R/W ========================================================
 
 static func parseGenericCSV(file):
