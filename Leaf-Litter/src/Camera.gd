@@ -11,7 +11,7 @@ func _physics_process(delta):
 	var down = (1 if Input.is_action_pressed("ui_down") else 0)
 	#print ("left %s right %s up %s down %s" % [left, right, up, down])
 	if left != right or up != down:
-		move_and_slide(Vector2(right - left, down - up) * SPEED * delta)
+		var _junk = move_and_slide(Vector2(right - left, down - up) * SPEED * delta)
 	
 	# Animate
 	if right or left:

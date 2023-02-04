@@ -10,11 +10,23 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "QuestItem",
+"language": "GDScript",
+"path": "res://src/QuestItem.gd"
+}, {
+"base": "VBoxContainer",
+"class": "QuestList",
+"language": "GDScript",
+"path": "res://src/QuestList.gd"
+}, {
+"base": "Node",
 "class": "Walker",
 "language": "GDScript",
 "path": "res://assets/Walker.gd"
 } ]
 _global_script_class_icons={
+"QuestItem": "",
+"QuestList": "",
 "Walker": ""
 }
 
@@ -22,6 +34,10 @@ _global_script_class_icons={
 
 config/name="Leaf Litter"
 config/icon="res://icon.png"
+
+[autoload]
+
+Util="*res://src/Util.gd"
 
 [gui]
 
