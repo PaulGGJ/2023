@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "VBoxContainer",
+"class": "InventoryList",
+"language": "GDScript",
+"path": "res://src/InventoryList.gd"
+}, {
 "base": "Node",
 "class": "QuestItem",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://src/Walker.gd"
 } ]
 _global_script_class_icons={
+"InventoryList": "",
 "QuestItem": "",
 "QuestList": "",
 "Walker": ""
@@ -39,6 +45,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Util="*res://src/Util.gd"
+
+[display]
+
+window/size/width=1200
+window/size/height=900
 
 [gui]
 
