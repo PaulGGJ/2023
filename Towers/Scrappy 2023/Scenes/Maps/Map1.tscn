@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assests/Environment/Tilesets/terrainTiles_default.png" type="Texture" id=1]
 [ext_resource path="res://Assests/Environment/Props/treeBrown_large.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scenes/Towers/GunT2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Towers/MissileT1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Ground.gd" type="Script" id=9]
+[ext_resource path="res://Assests/squirrel.png" type="Texture" id=10]
+[ext_resource path="res://src/Camera.gd" type="Script" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Autograss"
@@ -116,6 +118,8 @@
 4/shapes = [  ]
 4/z_index = 0
 
+[sub_resource type="CircleShape2D" id=3]
+
 [node name="Map1" type="Node2D"]
 
 [node name="Ground" type="TileMap" parent="."]
@@ -128,6 +132,28 @@ tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( 10, 1, 0, 65544, 3, 0, 131081, 0, 65538, 131082, 0, 1, 131083, 0, 1, 131084, 0, 1, 131085, 0, 65539, 131086, 3, 0, 131090, 4, 0, 196611, 2, 0, 196615, 2, 0, 196617, 0, 0, 196621, 0, 2, 196622, 0, 1, 196623, 0, 1, 196624, 0, 1, 196625, 0, 1, 196626, 0, 1, 196627, 0, 1, 196628, 0, 1, 196629, 0, 0, 262153, 0, 0, 262157, 0, 0, 262158, 2, 0, 393214, 0, 0, 393215, 0, 1, 327680, 0, 1, 327681, 0, 1, 327682, 0, 65539, 327686, 0, 65538, 327687, 0, 1, 327688, 0, 1, 327689, 0, 3, 327693, 0, 0, 327698, 4, 0, 393218, 0, 0, 393222, 0, 0, 393225, 0, 0, 393228, 2, 0, 393229, 0, 0, 393232, 1, 0, 458754, 0, 0, 458758, 0, 0, 458761, 0, 65540, 458762, 0, 1, 458763, 0, 1, 458764, 0, 1, 458765, 0, 65541, 524290, 0, 0, 524294, 0, 0, 589825, 2, 0, 589826, 0, 65540, 589827, 0, 1, 589828, 0, 1, 589829, 0, 1, 589830, 0, 65541, 589832, 1, 0, 589840, 2, 0 )
 script = ExtResource( 9 )
+
+[node name="Camera" type="KinematicBody2D" parent="TowerExclusion"]
+script = ExtResource( 12 )
+
+[node name="Camera2D" type="Camera2D" parent="TowerExclusion/Camera"]
+position = Vector2( 30.2722, 90.1349 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Player" type="Sprite" parent="TowerExclusion/Camera"]
+position = Vector2( 33.6358, 90.8168 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TowerExclusion/Camera"]
+position = Vector2( 28.5904, 97.5439 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 3 )
+
+[node name="GUI" type="Node2D" parent="TowerExclusion/Camera"]
 
 [node name="Turrets" type="Node2D" parent="."]
 
