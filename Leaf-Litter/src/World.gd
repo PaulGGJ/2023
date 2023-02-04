@@ -1,5 +1,5 @@
 extends Node2D
-a
+
 #const Player = preload("res://src/Actors/Player.tscn")
 #const Exit = preload("res://src/Objects/ExitDoor.tscn")
 #const Enemy_1 = preload("res://src/Actors/Enemy_1.tscn")
@@ -8,11 +8,11 @@ a
 
 # borders defines the bounds of the generated area: 
 #	first 2 numbers is top left corner position and second 2 numbers is bottom right position
-export var borders = Rect2(1, 1, 49, 19) 
+export var borders = Rect2(1, 1, 49, 15) 
 #export var walker_start_pos = Vector2(16, 2)
-export var walker_left_start_pos = Vector2(23, 1)
+export var walker_left_start_pos = Vector2(18, 1)
 export var walker_down_start_pos = Vector2(25, 1)
-export var walker_right_start_pos = Vector2(27, 1)
+export var walker_right_start_pos = Vector2(32, 1)
 export var room_min = int(3)
 export var room_max = int(5)
 var startPosition = Vector2()
@@ -39,11 +39,15 @@ func generate_level():
 	map += walker.walk(75, Vector2.DOWN)
 	walker = Walker.new(walker_right_start_pos, borders, room_min, room_max)
 	map += walker.walk(75, Vector2.RIGHT)
-	
+	print(tileMap.get_cell(0,0))
+	print(tileMap.get_cell(1,1))
 	walker.queue_free()
 	for location in map:
-		tileMap.set_cellv(location, -1)
-	tileMap.update_bitmask_region(borders.position, borders.end)
+#		print(tileMap.get_cell(location.x, location.y))
+		tileMap.set_cellv(location, 2)
+#		print(tileMap.get_cell(location.x, location.y))
+#		tileMap.set_cellv(location, 1)
+	tileMap.update_bitmask_region(borders.position - Vector2(1, 1), borders.end + Vector2(1,1))
 	
 	startPosition = map.front()*64
 	
