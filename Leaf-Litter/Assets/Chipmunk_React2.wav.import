@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Chipmunk_React2.wav-5c5c7947504c0419f68396b4dd7a0a77.sample"
+
+[deps]
+
+source_file="res://Assets/Chipmunk_React2.wav"
+dest_files=[ "res://.import/Chipmunk_React2.wav-5c5c7947504c0419f68396b4dd7a0a77.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

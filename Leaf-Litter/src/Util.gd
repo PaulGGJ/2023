@@ -84,6 +84,28 @@ static func getTexture(fname):
 	var tex = ImageTexture.new()
 	tex.create_from_image(img)
 	return tex
+	
+	
+# https://github.com/godotengine/godot/issues/17748
+static func getAudio(fname):
+	var stream
+	var ext = fname.substr(fname.find("."))
+	if ext == ".ogg":
+		print(".ogg")
+		stream = AudioStreamOGGVorbis.new()
+	else:
+		print(".wav")
+		stream =  AudioStreamSample.new()
+		stream.format = stream.FORMAT_16_BITS
+		stream.mix_rate = 48000
+	var afile = File.new()
+	if afile.open(fname, File.READ) == OK:
+		var bytes = afile.get_buffer(afile.get_len())
+		stream.data = bytes
+	else:
+		print("Error reading sound file " + fname)
+	afile.close()
+	return stream
 
 # ===== File R/W ========================================================
 

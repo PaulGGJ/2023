@@ -2,7 +2,11 @@ extends KinematicBody2D
 
 
 onready var player = $Player
+var music_player
 var SPEED = 18000.0
+
+func _ready():
+	music_player = get_tree().get_root().find_node("MusicPlayer", true, false)
 
 func _physics_process(delta):
 	var left = (1 if Input.is_action_pressed("ui_left") else 0)
@@ -22,3 +26,10 @@ func _physics_process(delta):
 		else:
 			player.frame = 1 # default
 	player.scale.x = abs(player.scale.x) * (-1 if left and !right else 1)
+
+	# Sound
+	if left or right or up or down:
+		music_player.play_walking()
+	else:
+		music_player.stop_walking()
+	
