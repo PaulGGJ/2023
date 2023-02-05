@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Rotting_Box.png-5a75dd5f02b04ce4c2bd95459bb64bad.stex"
+path="res://.import/Rotting_Box.png-932b36044cab5309ce3bbecc1ea41308.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/litter/Rotting_Box.png"
-dest_files=[ "res://.import/Rotting_Box.png-5a75dd5f02b04ce4c2bd95459bb64bad.stex" ]
+source_file="res://assets/litter/Rotting_Box.png"
+dest_files=[ "res://.import/Rotting_Box.png-932b36044cab5309ce3bbecc1ea41308.stex" ]
 
 [params]
 
