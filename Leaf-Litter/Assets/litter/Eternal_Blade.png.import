@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Eternal_Blade.png-d180914b3b142671cf573037a84d05ea.stex"
+path="res://.import/Eternal_Blade.png-0d98a02c6fc27416115d3096f5d7ac5d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/litter/Eternal_Blade.png"
-dest_files=[ "res://.import/Eternal_Blade.png-d180914b3b142671cf573037a84d05ea.stex" ]
+source_file="res://Assets/litter/Eternal_Blade.png"
+dest_files=[ "res://.import/Eternal_Blade.png-0d98a02c6fc27416115d3096f5d7ac5d.stex" ]
 
 [params]
 

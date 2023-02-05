@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Foul_Brew.png-1096a25c8531e72a16b9841d802afcb8.stex"
+path="res://.import/Foul_Brew.png-e09547ab16301f178fdf373075ec245f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/litter/Foul_Brew.png"
-dest_files=[ "res://.import/Foul_Brew.png-1096a25c8531e72a16b9841d802afcb8.stex" ]
+source_file="res://Assets/litter/Foul_Brew.png"
+dest_files=[ "res://.import/Foul_Brew.png-e09547ab16301f178fdf373075ec245f.stex" ]
 
 [params]
 

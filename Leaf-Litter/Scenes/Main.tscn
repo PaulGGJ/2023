@@ -864,7 +864,7 @@ position = Vector2( 3261.5, -617 )
 texture = ExtResource( 4 )
 
 [node name="PlayerAndGUI" parent="TileMap" instance=ExtResource( 3 )]
-position = Vector2( 3257, 58 )
+position = Vector2( 3257, -16 )
 scale = Vector2( 1, 1 )
 collision_mask = 3
 
