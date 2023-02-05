@@ -116,6 +116,8 @@ func _physics_process(delta):
 				$GUI/Columns/InventoryList.add_item(int(collider.name))
 				$GUI/Columns/QuestList.remove_quest(int(collider.name))
 				collider.queue_free()
+				var nami = int(collider.name)
+				popup_appear(nami)
 			if layer == 4: # This is in bits, so 3 in interface = 3rd bit, 001 -> 100 so 4
 				if collider.name == "PanToTree":
 					pan_to_tree()
@@ -159,3 +161,43 @@ func _on_Next_pressed():
 		gui.show()
 		music_player.playAudio("Secrets_of_the_Forest.ogg", -8)
 	
+func popup_appear(i):
+	var root = get_parent().get_parent()
+	var popup = root.get_node("ArtifactFound")
+	
+	var texture
+	if i == 0:
+		texture = preload("res://assets/litter/Ashen_Leaves.png")
+	elif i == 1:
+		texture = preload("res://assets/litter/Curse-Bearing_Cloth.png")
+	elif i == 2:
+		texture = preload("res://assets/litter/Disguising_Hood.png")
+	elif i == 3:
+		texture = preload("res://assets/litter/Eternal_Blade.png")
+	elif i == 4:
+		texture = preload("res://assets/litter/Eternal_Shield.png")
+	elif i == 5:
+		texture = preload("res://assets/litter/Foul_Brew.png")
+	elif i == 6:
+		texture = preload("res://assets/litter/Floating_Orb.png")
+	elif i == 7:
+		texture = preload("res://assets/litter/Gliding_Tool.png")
+	elif i == 8:
+		texture = preload("res://assets/litter/Mobile_Shelter.png")
+	elif i == 9:
+		texture = preload("res://assets/litter/Mysterious_Letter.png")
+	elif i == 10:
+		texture = preload("res://assets/litter/Odd_Effigy.png")
+	elif i == 11:
+		texture = preload("res://assets/litter/Rotting_Box.png")
+	elif i == 12:
+		texture = preload("res://assets/litter/Sixfold_Snare.png")
+	elif i == 13:
+		texture = preload("res://assets/litter/Tall_Staff.png")
+	elif i == 14:
+		texture = preload("res://assets/litter/Warriors_Boat.png")
+
+	var sprite = popup.get_node("Sprite")
+	sprite.set_texture(texture)
+	
+	popup.visible = true;

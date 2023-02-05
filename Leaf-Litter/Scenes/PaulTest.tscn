@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Arborent Screen.png" type="Texture" id=4]
 [ext_resource path="res://assets/LeafyWangBlob.png" type="Texture" id=5]
 [ext_resource path="res://assets/litter/Ashen_Leaves.png" type="Texture" id=6]
-[ext_resource path="res://assets/Fonts/Montreal-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/fonts/Montreal-Regular.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 28.1784, 126.837, 0.850693, 126.837, 0.448807, 1.04962, 126.236, 1.45151, 127.04, 126.435, 100.918, 127.239, 98.9088, 39.6299, 64.7492, 16.7228, 30.1877, 34.8073 )
@@ -841,13 +841,13 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 3/z_index = 0
 
-[sub_resource type="DynamicFont" id=91]
+[sub_resource type="DynamicFont" id=89]
 size = 12
 font_data = ExtResource( 7 )
 
-[sub_resource type="RectangleShape2D" id=89]
-
 [sub_resource type="RectangleShape2D" id=90]
+
+[sub_resource type="RectangleShape2D" id=91]
 
 [node name="Game2" type="Node2D"]
 script = ExtResource( 1 )
@@ -874,7 +874,7 @@ position = Vector2( 3257, 58 )
 scale = Vector2( 1, 1 )
 collision_mask = 3
 
-[node name="ArtifactFound2" type="AcceptDialog" parent="TileMap/PlayerAndGUI"]
+[node name="ArtifactFound" type="AcceptDialog" parent="TileMap/PlayerAndGUI"]
 visible = true
 margin_left = -281.5
 margin_top = -141.0
@@ -882,17 +882,17 @@ margin_right = 278.5
 margin_bottom = 159.0
 window_title = "Artifact Found!"
 
-[node name="Sprite" type="Sprite" parent="TileMap/PlayerAndGUI/ArtifactFound2"]
+[node name="Sprite" type="Sprite" parent="TileMap/PlayerAndGUI/ArtifactFound"]
 position = Vector2( 280, 80 )
 rotation = 0.0174533
 texture = ExtResource( 6 )
 
-[node name="Description" type="Label" parent="TileMap/PlayerAndGUI/ArtifactFound2"]
+[node name="Description" type="Label" parent="TileMap/PlayerAndGUI/ArtifactFound"]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 552.0
 margin_bottom = 264.0
-custom_fonts/font = SubResource( 91 )
+custom_fonts/font = SubResource( 89 )
 text = "AblSDfhlsis.x"
 align = 1
 valign = 1
@@ -913,7 +913,7 @@ collision_layer = 4
 position = Vector2( 90, 61 )
 rotation = 3.14159
 scale = Vector2( 20, 1 )
-shape = SubResource( 89 )
+shape = SubResource( 90 )
 one_way_collision = true
 one_way_collision_margin = 5.0
 
@@ -924,6 +924,6 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Triggers/PanToMap"]
 position = Vector2( 90, -4 )
 scale = Vector2( 20, 1 )
-shape = SubResource( 90 )
+shape = SubResource( 91 )
 one_way_collision = true
 one_way_collision_margin = 5.0
