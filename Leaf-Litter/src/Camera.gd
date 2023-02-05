@@ -182,6 +182,9 @@ func popup_appear(i):
 	print("description: ", desc)
 	#$GUI/Columns/QuestList.remove_quest(i)
 	
+	var label = popup.get_node("Description")
+	label.text = desc
+	
 	var texture
 	if i == 0:
 		texture = preload("res://assets/litter/Ashen_Leaves.png")
