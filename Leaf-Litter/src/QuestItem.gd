@@ -35,7 +35,7 @@ func add_object(o):
 func set_direction(dir : int):
 	direction = dir
 func set_tile(x, y):
-	obj.position = Vector2(x * 32, y * 32)
+	obj.position = Vector2(x * 128, y * 128)
 
 # File stuff
 const FILE_PATH = "assets/quest_items.txt"
