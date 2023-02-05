@@ -28,7 +28,7 @@ onready var tileMap = $TileMap
 #func initialize():
 func _ready():
 	var someQuest = $TileMap/PlayerAndGUI/GUI/Columns/QuestList.get_quest_by_pos(0)
-	someQuest.set_tile(23,0)
+	someQuest.set_tile(20,0)
 #	Player.connect("SignalDied", self, "show_label()")
 #	Retry.connect("retry", self, "restart")
 	randomize()
