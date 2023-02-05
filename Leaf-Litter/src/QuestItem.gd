@@ -26,6 +26,7 @@ func _init(item_id):
 func add_object(o):
 	obj = o
 	# Set position, create a sprite, etc accordingly
+	obj.name = "%d"%id
 	set_tile(tile_x, tile_y)
 	set_tile(2, 4)
 	#print("Loading: res://Assets/litter/%s.png" % image_file)

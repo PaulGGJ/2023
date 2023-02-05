@@ -870,7 +870,7 @@ position = Vector2( 3261.5, -617 )
 texture = ExtResource( 4 )
 
 [node name="PlayerAndGUI" parent="TileMap" instance=ExtResource( 3 )]
-position = Vector2( 3257, -16 )
+position = Vector2( 3257, 4 )
 scale = Vector2( 1, 1 )
 collision_mask = 3
 
@@ -907,9 +907,10 @@ one_way_collision_margin = 5.0
 
 [node name="ArtifactFound" type="AcceptDialog" parent="."]
 visible = true
-margin_left = 3000.0
-margin_right = 3560.0
-margin_bottom = 300.0
+margin_left = 55.0
+margin_top = -5.0
+margin_right = 615.0
+margin_bottom = 295.0
 window_title = "Artifact Found!"
 
 [node name="Sprite" type="Sprite" parent="ArtifactFound"]
