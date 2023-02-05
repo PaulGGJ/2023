@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Intro-God War.png" type="Texture" id=1]
 [ext_resource path="res://Assets/squirrel.png" type="Texture" id=2]
 [ext_resource path="res://Assets/next-arrow.png" type="Texture" id=3]
 [ext_resource path="res://src/Intro.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Leaf Litter Title Screen.png" type="Texture" id=5]
 
 [node name="Intro" type="Control"]
 margin_left = -300.0
@@ -21,7 +22,17 @@ texture = ExtResource( 1 )
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Intro_Narration1" type="Label" parent="Node0"]
+[node name="TitleScreen" type="Sprite" parent="Node0"]
+position = Vector2( 300.5, 233 )
+scale = Vector2( 0.32, 0.32 )
+texture = ExtResource( 5 )
+
+[node name="Node1" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Intro_Narration1" type="Label" parent="Node1"]
 margin_left = 35.0
 margin_top = 295.0
 margin_right = 335.0
@@ -33,12 +44,12 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Many, many eons ago, Arborent, the God of the Wild, ruled this world. That's what they say, and that's what we believe."
 autowrap = true
 
-[node name="Node1" type="Control" parent="."]
+[node name="Node2" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Intro_Narration2" type="Label" parent="Node1"]
+[node name="Intro_Narration2" type="Label" parent="Node2"]
 margin_left = 35.0
 margin_top = 295.0
 margin_right = 335.0
@@ -50,12 +61,12 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "But no one in the forest remembers a time before Civitos, the God of Industry, rose, built by creatures who turned away from nature."
 autowrap = true
 
-[node name="Node2" type="Control" parent="."]
+[node name="Node3" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Intro_Narration3" type="Label" parent="Node2"]
+[node name="Intro_Narration3" type="Label" parent="Node3"]
 margin_left = 35.0
 margin_top = 295.0
 margin_right = 335.0
@@ -67,12 +78,12 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Yet the forest will not lay down quietly. We acolytes make sure of that."
 autowrap = true
 
-[node name="Node3" type="Control" parent="."]
+[node name="Node4" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Intro_Narration4" type="Label" parent="Node3"]
+[node name="Intro_Narration4" type="Label" parent="Node4"]
 margin_left = 35.0
 margin_top = 295.0
 margin_right = 335.0
@@ -84,12 +95,12 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Even today, when a mysterious altar appeared at Arborent's roots."
 autowrap = true
 
-[node name="Node4" type="Control" parent="."]
+[node name="Node5" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Intro_Narration5" type="Label" parent="Node4"]
+[node name="Intro_Narration5" type="Label" parent="Node5"]
 margin_left = 35.0
 margin_top = 295.0
 margin_right = 335.0
@@ -101,12 +112,12 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Clearly a challenge to our god’s power."
 autowrap = true
 
-[node name="Node5" type="Control" parent="."]
+[node name="Node6" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Intro_Narration6" type="Label" parent="Node5"]
+[node name="Intro_Narration6" type="Label" parent="Node6"]
 margin_left = 35.0
 margin_top = 295.0
 margin_right = 335.0
@@ -118,12 +129,12 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "The God of the Wild has entrusted me with a mission. Travel his great roots throughout what remains of the forest."
 autowrap = true
 
-[node name="Node6" type="Control" parent="."]
+[node name="Node7" type="Control" parent="."]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Intro_Narration7" type="Label" parent="Node6"]
+[node name="Intro_Narration7" type="Label" parent="Node7"]
 margin_left = 35.0
 margin_top = 295.0
 margin_right = 335.0
