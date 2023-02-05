@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mobile_Shelter.png-99356faddb59222bcde9dd15632b3da0.stex"
+path="res://.import/Mobile_Shelter.png-c909b42087eb34ce4665243c2c69ede9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/litter/Mobile_Shelter.png"
-dest_files=[ "res://.import/Mobile_Shelter.png-99356faddb59222bcde9dd15632b3da0.stex" ]
+source_file="res://Assets/litter/Mobile_Shelter.png"
+dest_files=[ "res://.import/Mobile_Shelter.png-c909b42087eb34ce4665243c2c69ede9.stex" ]
 
 [params]
 

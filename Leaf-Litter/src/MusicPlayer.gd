@@ -11,8 +11,28 @@ func playAudio(fname, vol : float):
 		currMusicFile = newMusicFile
 		stream = Util.getAudio("Assets/audio/%s" % fname)
 		stop()
-		volume_db = vol
 		play()
+	volume_db = vol
+	if mfile != null:
+		mainTimer = Timer.new()
+		mainTimer.set_wait_time(2) # It won't play this often, that will be randomized
+		mainTimer.connect("timeout", self, "playMainMusic")
+		add_child(mainTimer)
+		mainTimer.start()
+
+var mainTimer : Timer
+var mfile
+var mvol : float
+func setMainMusic(fname, vol : float):
+	mfile = fname
+	mvol = vol
+func playMainMusic():
+	if mainTimer != null:
+		mainTimer.stop()
+	stream = Util.getAudio("Assets/audio/%s" % mfile)
+	stop()
+	play()
+	volume_db = mvol
 
 func _ready():
 	RNG.randomize()
@@ -24,13 +44,9 @@ func _ready():
 	add_child(walkTimer)
 	walkTimer.start()
 
-# Interface functions
-func play_field_theme():
-	playAudio("field_theme", -12)
-
 func play_pickup():
 	var rnd = RNG.randi_range(1, 2)
-	playAudio("Chipmunk_React" + rnd + ".wav", -8.0)
+	playAudio("Chipmunk_React%d.wav" % rnd, -8.0)
 
 var walkTimer
 const TIMER_FREQ = 0.1
@@ -47,7 +63,7 @@ func isWalking():
 		next_walk -= TIMER_FREQ
 	elif walking:
 		print("play audio")
-		playAudio("Chipmunk_Footsteps.wav", -2.0)
+		playAudio("Chipmunk_Footsteps.wav", -1.0)
 		next_walk = RNG.randf_range(1.0, 4.0)
 
 ## Resume functions

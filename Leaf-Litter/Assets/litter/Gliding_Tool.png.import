@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Gliding_Tool.png-cde910c2f3dd12376c71acee9f966227.stex"
+path="res://.import/Gliding_Tool.png-9e4bf69e31a8d85b76dd6a617fb03461.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/litter/Gliding_Tool.png"
-dest_files=[ "res://.import/Gliding_Tool.png-cde910c2f3dd12376c71acee9f966227.stex" ]
+source_file="res://Assets/litter/Gliding_Tool.png"
+dest_files=[ "res://.import/Gliding_Tool.png-9e4bf69e31a8d85b76dd6a617fb03461.stex" ]
 
 [params]
 
