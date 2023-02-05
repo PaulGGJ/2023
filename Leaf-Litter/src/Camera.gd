@@ -9,6 +9,11 @@ onready var intro = $Intro
 var music_player
 var SPEED = 36000.0
 
+var name_nature
+var name_industry
+var descr_nature
+var direction : int
+
 func _ready():
 	music_player = get_tree().get_root().find_node("MusicPlayer", true, false)
 	map_y = cam.position.y # We set these at the start and reference them later for panning
@@ -110,12 +115,12 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			var collider = collision.collider
 			var layer = collider.get_collision_layer()
-			print("Colliding: %d" % layer)
 			print("name: ", collider.name)
 			if layer == 2:
 				$GUI/Columns/InventoryList.add_item(int(collider.name))
-				$GUI/Columns/QuestList.remove_quest(int(collider.name))
+				var collider_name = int(collider.name)
 				collider.queue_free()
+				popup_appear(collider_name)
 			if layer == 4: # This is in bits, so 3 in interface = 3rd bit, 001 -> 100 so 4
 				if collider.name == "PanToTree":
 					pan_to_tree()
@@ -159,3 +164,88 @@ func _on_Next_pressed():
 		gui.show()
 		music_player.playAudio("Secrets_of_the_Forest.ogg", -8)
 	
+func popup_appear(i):
+	var root = get_parent().get_parent()
+	var popup = root.get_node("ArtifactFound")
+	#var popup = get_node("ArtifactFound")
+	
+	""""
+	var desc
+	print("i is ", i)
+	var quest_items = get_parent().get_node("ScavengerItems").get_children()
+	for item in quests:
+		if item.name == String(i):
+			desc = item.descr_nature
+	"""
+	var quests = $GUI/Columns/QuestList.quests
+	var desc = quests[i].descr_nature
+	print("description: ", desc)
+	#$GUI/Columns/QuestList.remove_quest(i)
+	
+	var texture
+	if i == 0:
+		texture = preload("res://assets/litter/Ashen_Leaves.png")
+	elif i == 1:
+		texture = preload("res://assets/litter/Curse-Bearing_Cloth.png")
+	elif i == 2:
+		texture = preload("res://assets/litter/Disguising_Hood.png")
+	elif i == 3:
+		texture = preload("res://assets/litter/Eternal_Blade.png")
+	elif i == 4:
+		texture = preload("res://assets/litter/Eternal_Shield.png")
+	elif i == 5:
+		texture = preload("res://assets/litter/Foul_Brew.png")
+	elif i == 6:
+		texture = preload("res://assets/litter/Floating_Orb.png")
+	elif i == 7:
+		texture = preload("res://assets/litter/Gliding_Tool.png")
+	elif i == 8:
+		texture = preload("res://assets/litter/Mobile_Shelter.png")
+	elif i == 9:
+		texture = preload("res://assets/litter/Mysterious_Letter.png")
+	elif i == 10:
+		texture = preload("res://assets/litter/Odd_Effigy.png")
+	elif i == 11:
+		texture = preload("res://assets/litter/Rotting_Box.png")
+	elif i == 12:
+		texture = preload("res://assets/litter/Sixfold_Snare.png")
+	elif i == 13:
+		texture = preload("res://assets/litter/Tall_Staff.png")
+	elif i == 14:
+		texture = preload("res://assets/litter/Warriors_Boat.png")
+
+	var sprite = popup.get_node("Sprite")
+	sprite.set_texture(texture)
+	
+	var sx = position.x * 2
+	var sy = position.y * 2
+	
+	popup.rect_position.x = sx - 280
+	popup.rect_position.y = sy -150
+	
+	popup.visible = true;
+	
+	#Copied out of quest item because yay
+
+const FILE_PATH = "assets/quest_items.txt"
+func load_from_file(line_requested : int):
+	# Open file
+	var file = File.new()
+	if not file.open(FILE_PATH, file.READ) == OK:
+		return
+	file.seek(0)
+	# Parse lines
+	var line_count = 0     # For reporting errors
+	var current_line : String
+	while line_count <= line_requested and !file.eof_reached():
+		current_line = file.get_line()
+		line_count += 1 # Human-readable, so first line is 1
+		var dash = current_line.find("-")
+		if dash >= 0:
+			var names = current_line.substr(0, dash).strip_edges()
+			descr_nature = current_line.substr(dash + 1).strip_edges()
+			var begin_bracket = names.find("(")
+			if begin_bracket >= 0:
+				name_nature = names.substr(0, begin_bracket).strip_edges()
+				name_industry = names.substr(begin_bracket + 1).strip_edges()
+				name_industry = name_industry.replace(")", "")

@@ -19,6 +19,7 @@ func _ready():
 		var item = QuestItem.new(q)
 		item.add_object(obj)
 		item.set_direction(count % 3)
+		print("q is ", q)
 		quests[q] = item
 		ScavengerItems.add_child(obj)
 		count += 1
