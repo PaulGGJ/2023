@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 onready var player = $Player
 var music_player
-var SPEED = 18000.0
+var SPEED = 36000.0
 
 func _ready():
 	music_player = get_tree().get_root().find_node("MusicPlayer", true, false)
