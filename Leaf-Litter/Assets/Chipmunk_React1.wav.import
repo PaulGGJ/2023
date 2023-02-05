@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Chipmunk_React1.wav-6c8ee96c9f18d8b9309279b12072525b.sample"
+path="res://.import/Chipmunk_React1.wav-6177632c24c4bb6372a617d561b96bdf.sample"
 
 [deps]
 
-source_file="res://Assets/Chipmunk_React1.wav"
-dest_files=[ "res://.import/Chipmunk_React1.wav-6c8ee96c9f18d8b9309279b12072525b.sample" ]
+source_file="res://assets/Chipmunk_React1.wav"
+dest_files=[ "res://.import/Chipmunk_React1.wav-6177632c24c4bb6372a617d561b96bdf.sample" ]
 
 [params]
 

@@ -19,7 +19,7 @@ func _ready():
 		var item = QuestItem.new(q)
 		item.add_object(obj)
 		item.set_direction(count % 3)
-		quests[item] = item
+		quests[q] = item
 		ScavengerItems.add_child(obj)
 		count += 1
 	# Display
@@ -31,6 +31,17 @@ func randomize_quests():
 	var tempQ = Util.XchooseY(quest_count-1, HUNT_SIZE)
 	for q in tempQ:
 		quest_ids.push_back(q)
+
+func remove_quest(target):
+	var i = 0
+	var removed = false
+	var size = quest_ids.size()
+	while i < size and !removed:
+		if target == quest_ids[i]:
+			removed = true
+			quest_ids.remove(i)
+			quests.erase(target)
+		i = i + 1
 
 var current_node
 func reload():
