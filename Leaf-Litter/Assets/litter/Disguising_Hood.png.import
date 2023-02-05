@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Disguising_Hood.png-d7fbf47f52a2404fcf3ac1a5ce884a33.stex"
+path="res://.import/Disguising_Hood.png-0c7eb573c81045c5422d76ba7bd550f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/litter/Disguising_Hood.png"
-dest_files=[ "res://.import/Disguising_Hood.png-d7fbf47f52a2404fcf3ac1a5ce884a33.stex" ]
+source_file="res://Assets/litter/Disguising_Hood.png"
+dest_files=[ "res://.import/Disguising_Hood.png-0c7eb573c81045c5422d76ba7bd550f1.stex" ]
 
 [params]
 

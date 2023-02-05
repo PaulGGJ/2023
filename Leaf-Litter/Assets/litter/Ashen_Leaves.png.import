@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ashen_Leaves.png-9a6082a7fa93991cd890701cc9c9b587.stex"
+path="res://.import/Ashen_Leaves.png-645c8f935fa8fba24af80526acf50476.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/litter/Ashen_Leaves.png"
-dest_files=[ "res://.import/Ashen_Leaves.png-9a6082a7fa93991cd890701cc9c9b587.stex" ]
+source_file="res://Assets/litter/Ashen_Leaves.png"
+dest_files=[ "res://.import/Ashen_Leaves.png-645c8f935fa8fba24af80526acf50476.stex" ]
 
 [params]
 

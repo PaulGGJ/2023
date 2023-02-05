@@ -5,6 +5,7 @@ onready var player = $Player
 onready var player_coll = $PlayerCollider
 onready var cam = $Camera2D
 onready var gui = $GUI
+onready var intro = $Intro
 var music_player
 var SPEED = 36000.0
 
@@ -14,7 +15,12 @@ func _ready():
 	tree_y = map_y - 365
 	map_scale = cam.zoom
 	tree_scale = map_scale * 3.1
-	#pan_to_tree()
+	start_intro()
+	
+func start_intro():
+	gui.hide()
+	var audio_file = intro.get_node("Node0").get_child(0).name + ".wav"
+	music_player.playAudio(audio_file, -12)
 
 enum MODE { NORMAL, PAN_UP, PAN_DOWN, CUTSCENE, DONESCENE }
 var scene_mode = MODE.NORMAL
@@ -36,7 +42,6 @@ func pan_to_map():
 	if scene_mode == MODE.DONESCENE:
 		pan(map_y, map_scale)
 		scene_mode = MODE.PAN_DOWN
-		gui.show()
 
 func pan(to_y, to_scale):
 	togglePanColliders(false)
@@ -46,6 +51,7 @@ func pan(to_y, to_scale):
 	pan_end_scale = to_scale
 func pan_complete():
 	togglePanColliders(true)
+	gui.show()
 	player_coll.position = player.position
 func togglePanCollider(obj_noun, e):
 	pass
@@ -131,4 +137,25 @@ func _physics_process(delta):
 			music_player.play_walking()
 		else:
 			music_player.stop_walking()
+	
+const INTRO_DONE = -1
+var intro_posn : int = 0
+func _on_Next_pressed():
+	print("pressed next")
+	# We're in the intro
+	# "intro" will be the currently-displaying node
+	var curr = intro.get_node("Node%d" % intro_posn)
+	intro_posn += 1
+	var next = intro.get_node("Node%d" % intro_posn)
+	if next != null: # Next
+		curr.hide()
+		next.show()
+		# FIXME This is reeeeal kludgey but:
+		# The first node may be named for an audio file.  If it's not, we just get an error.  No big.
+		music_player.playAudio(next.get_child(0).name + ".wav", -12)
+	else:
+		intro_posn = INTRO_DONE
+		intro.hide()
+		gui.show()
+		music_player.playAudio("Secrets_of_the_Forest.ogg", -8)
 	

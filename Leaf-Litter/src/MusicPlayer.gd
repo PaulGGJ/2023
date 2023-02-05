@@ -9,7 +9,7 @@ func playAudio(fname, vol : float):
 	var newMusicFile = fname
 	if newMusicFile != currMusicFile:
 		currMusicFile = newMusicFile
-		stream = Util.getAudio("Assets/%s" % fname)
+		stream = Util.getAudio("Assets/audio/%s" % fname)
 		stop()
 		volume_db = vol
 		play()
@@ -24,7 +24,7 @@ func _ready():
 	add_child(walkTimer)
 	walkTimer.start()
 
-## Interface functions
+# Interface functions
 func play_field_theme():
 	playAudio("field_theme", -12)
 
@@ -47,7 +47,7 @@ func isWalking():
 		next_walk -= TIMER_FREQ
 	elif walking:
 		print("play audio")
-		playAudio("Chipmunk_Footsteps.wav", -8.0)
+		playAudio("Chipmunk_Footsteps.wav", -2.0)
 		next_walk = RNG.randf_range(1.0, 4.0)
 
 ## Resume functions
