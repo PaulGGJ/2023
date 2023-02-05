@@ -115,8 +115,9 @@ func _physics_process(delta):
 			var collision = get_slide_collision(i)
 			var collider = collision.collider
 			var layer = collider.get_collision_layer()
-			print("name: ", collider.name)
+			#print("name: ", collider.name)
 			if layer == 2:
+				music_player.play_pickup()
 				$GUI/Columns/InventoryList.add_item(int(collider.name))
 				var collider_name = int(collider.name)
 				collider.queue_free()
@@ -162,7 +163,8 @@ func _on_Next_pressed():
 		intro_posn = INTRO_DONE
 		intro.hide()
 		gui.show()
-		music_player.playAudio("Secrets_of_the_Forest.ogg", -8)
+		music_player.setMainMusic("Secrets_of_the_Forest.ogg", -4)
+		music_player.playMainMusic()
 	
 func popup_appear(i):
 	var root = get_parent().get_parent()
