@@ -64,5 +64,8 @@ func reload():
 #		node("Name").text = q.name_nature
 #		add_child(current_node)
 
+func get_quest_by_pos(i):
+	return quests[quest_ids[i]]
+
 func node(s):
 	return current_node.get_node(s)
