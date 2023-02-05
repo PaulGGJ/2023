@@ -1,10 +1,12 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=99 format=2]
 
 [ext_resource path="res://src/World.gd" type="Script" id=1]
 [ext_resource path="res://src/MusicPlayer.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/PlayerAndGUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Arborent Screen.png" type="Texture" id=4]
 [ext_resource path="res://assets/LeafyWangBlob.png" type="Texture" id=5]
+[ext_resource path="res://assets/litter/Ashen_Leaves.png" type="Texture" id=6]
+[ext_resource path="res://assets/Fonts/Montreal-Regular.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 28.1784, 126.837, 0.850693, 126.837, 0.448807, 1.04962, 126.236, 1.45151, 127.04, 126.435, 100.918, 127.239, 98.9088, 39.6299, 64.7492, 16.7228, 30.1877, 34.8073 )
@@ -839,11 +841,15 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 } ]
 3/z_index = 0
 
+[sub_resource type="DynamicFont" id=91]
+size = 12
+font_data = ExtResource( 7 )
+
 [sub_resource type="RectangleShape2D" id=89]
 
 [sub_resource type="RectangleShape2D" id=90]
 
-[node name="Game" type="Node2D"]
+[node name="Game2" type="Node2D"]
 script = ExtResource( 1 )
 borders = Rect2( 0, 0, 50, 16 )
 walker_left_start_pos = Vector2( 18, 0 )
@@ -867,6 +873,29 @@ texture = ExtResource( 4 )
 position = Vector2( 3257, 58 )
 scale = Vector2( 1, 1 )
 collision_mask = 3
+
+[node name="ArtifactFound2" type="AcceptDialog" parent="TileMap/PlayerAndGUI"]
+visible = true
+margin_left = -281.5
+margin_top = -141.0
+margin_right = 278.5
+margin_bottom = 159.0
+window_title = "Artifact Found!"
+
+[node name="Sprite" type="Sprite" parent="TileMap/PlayerAndGUI/ArtifactFound2"]
+position = Vector2( 280, 80 )
+rotation = 0.0174533
+texture = ExtResource( 6 )
+
+[node name="Description" type="Label" parent="TileMap/PlayerAndGUI/ArtifactFound2"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 552.0
+margin_bottom = 264.0
+custom_fonts/font = SubResource( 91 )
+text = "AblSDfhlsis.x"
+align = 1
+valign = 1
 
 [node name="ScavengerItems" type="Node2D" parent="TileMap"]
 position = Vector2( 18, 72.5 )

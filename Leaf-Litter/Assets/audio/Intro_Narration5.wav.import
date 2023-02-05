@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Intro_Narration5.wav-71e4c01f90dafb934ed95f1365961114.sample"
+path="res://.import/Intro_Narration5.wav-2fd1db251d6628204d62ec579533cea1.sample"
 
 [deps]
 
-source_file="res://Assets/audio/Intro_Narration5.wav"
-dest_files=[ "res://.import/Intro_Narration5.wav-71e4c01f90dafb934ed95f1365961114.sample" ]
+source_file="res://assets/audio/Intro_Narration5.wav"
+dest_files=[ "res://.import/Intro_Narration5.wav-2fd1db251d6628204d62ec579533cea1.sample" ]
 
 [params]
 

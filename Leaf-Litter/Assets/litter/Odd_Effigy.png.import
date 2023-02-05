@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Odd_Effigy.png-6c32185c1ca26614d49a7fbb89155d3b.stex"
+path="res://.import/Odd_Effigy.png-408633b65ca5b7b797aaf30495fe54ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/litter/Odd_Effigy.png"
-dest_files=[ "res://.import/Odd_Effigy.png-6c32185c1ca26614d49a7fbb89155d3b.stex" ]
+source_file="res://assets/litter/Odd_Effigy.png"
+dest_files=[ "res://.import/Odd_Effigy.png-408633b65ca5b7b797aaf30495fe54ca.stex" ]
 
 [params]
 

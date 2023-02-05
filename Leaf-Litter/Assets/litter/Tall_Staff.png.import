@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tall_Staff.png-5189ae9615322b3868fb4ea8c0314b7b.stex"
+path="res://.import/Tall_Staff.png-25c6f352ecba54265cff1e9e4a30936a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/litter/Tall_Staff.png"
-dest_files=[ "res://.import/Tall_Staff.png-5189ae9615322b3868fb4ea8c0314b7b.stex" ]
+source_file="res://assets/litter/Tall_Staff.png"
+dest_files=[ "res://.import/Tall_Staff.png-25c6f352ecba54265cff1e9e4a30936a.stex" ]
 
 [params]
 

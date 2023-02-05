@@ -869,7 +869,7 @@ scale = Vector2( 1, 1 )
 collision_mask = 3
 
 [node name="ScavengerItems" type="Node2D" parent="TileMap"]
-position = Vector2( 1835, 2137 )
+position = Vector2( 5, 11 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="TileMap"]
 script = ExtResource( 2 )
