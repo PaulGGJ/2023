@@ -13,8 +13,11 @@ export var borders = Rect2(1, 1, 49, 15)
 export var walker_left_start_pos = Vector2(18, 1)
 export var walker_down_start_pos = Vector2(25, 1)
 export var walker_right_start_pos = Vector2(32, 1)
-export var room_min = int(3)
-export var room_max = int(5)
+export var room_min_size = int(3)
+export var room_max_size = int(5)
+export var hall_min_length = int(6)
+export var hall_max_length = 100
+export var turn_chance = 1
 var startPosition = Vector2()
 
 onready var tileMap = $TileMap
@@ -22,6 +25,7 @@ onready var tileMap = $TileMap
 
 
 
+#func initialize():
 func _ready():
 #	Player.connect("SignalDied", self, "show_label()")
 #	Retry.connect("retry", self, "restart")
@@ -29,28 +33,64 @@ func _ready():
 	generate_level()
 
 func generate_level():
-#	var walker = Walker.new(walker_start_pos, borders, room_min, room_max)
-	var walker = Walker.new(walker_left_start_pos, borders, room_min, room_max)
+#	var walker = Walker.new(walker_start_pos, borders, room_min_size, room_max_size)
+	var walker = Walker.new(walker_left_start_pos, borders, room_min_size, room_max_size, hall_min_length, hall_max_length, turn_chance)
 #	var walker = Walker.new(Vector2(19, 11), borders)
 	#walk(roomsize)
 #	var map = walker.walk(200)
-	var map = walker.walk(75, Vector2.LEFT)
-	walker = Walker.new(walker_down_start_pos, borders, room_min, room_max)
-	map += walker.walk(75, Vector2.DOWN)
-	walker = Walker.new(walker_right_start_pos, borders, room_min, room_max)
-	map += walker.walk(75, Vector2.RIGHT)
-	print(tileMap.get_cell(0,0))
-	print(tileMap.get_cell(1,1))
+#	var map = walker.walk(75, Vector2.LEFT)
+	var maps = []
+#	var maps = [[]]
+	var rooms = [[]]
+	maps += (walker.walk(75, Vector2.LEFT))
+	rooms[0] = walker.get_rooms()
 	walker.queue_free()
-	for location in map:
-#		print(tileMap.get_cell(location.x, location.y))
+	walker = Walker.new(walker_down_start_pos, borders, room_min_size, room_max_size, hall_min_length, hall_max_length, turn_chance)
+	maps += (walker.walk(75, Vector2.DOWN))
+	rooms.append(walker.get_rooms())
+	walker.queue_free()
+	walker = Walker.new(walker_right_start_pos, borders, room_min_size, room_max_size, hall_min_length, hall_max_length, turn_chance)
+	maps += (walker.walk(75, Vector2.RIGHT))
+	rooms.append(walker.get_rooms())
+	walker.queue_free()
+	var i = 0
+#	for map in maps:
+#		for location in map:
+#			tileMap.set_cellv(location, 2)
+	for location in maps:
 		tileMap.set_cellv(location, 2)
-#		print(tileMap.get_cell(location.x, location.y))
-#		tileMap.set_cellv(location, 1)
+
 	tileMap.update_bitmask_region(borders.position - Vector2(1, 1), borders.end + Vector2(1,1))
 	
-	startPosition = map.front()*64
-	
+		#place items in walker's path:
+	var items = [QuestItem]
+	items = $TileMap/PlayerAndGUI/GUI/Columns/QuestList
+	var items2 = [[]]
+#	var west_items = []
+#	var south_items = []
+#	var east_items = []
+
+#	for item in items:
+#		var dir = item.HUNT_DIR
+#		var index = randi() % rooms[dir].size   
+#		var location = Vector2(randi() % rooms[dir][index].size.x, 
+#		randi() % rooms[dir][index].size.y)
+#		item.position = location
+#		rooms[dir].remove(index)
+#	i = 0
+#	while i < items.size:
+#		items[items[i].HUNT_DIR].append(items[i])
+#		if items[i].HUNT_DIR == 0:
+#			west_items
+#		i += 1
+#	while items.size() > 0:
+#		var index = randi() % rooms[0].size   
+#		var location = Vector2(randi() % rooms[0][index].size.x, 
+#		randi() % rooms[0][index].size.y)
+#		items[0].position = location
+#		items.pop_front()
+
+	#old code for reference:
 #	var startZone = StartZone.instance()
 #	add_child(startZone)
 #	startZone.position = map.front()*64
@@ -59,8 +99,7 @@ func generate_level():
 #	add_child(player)
 #	player.position = map.front()*64
 #	player.collidable = false
-	
-	
+	#end of old cold
 
 func reload_level():
 	get_tree().reload_current_scene()
