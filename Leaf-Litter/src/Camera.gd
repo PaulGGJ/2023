@@ -19,6 +19,8 @@ func _ready():
 	
 func start_intro():
 	gui.hide()
+	var audio_file = intro.get_node("Node0").get_child(0).name + ".wav"
+	music_player.playAudio(audio_file, -12)
 
 enum MODE { NORMAL, PAN_UP, PAN_DOWN, CUTSCENE, DONESCENE }
 var scene_mode = MODE.NORMAL
@@ -139,6 +141,7 @@ func _physics_process(delta):
 const INTRO_DONE = -1
 var intro_posn : int = 0
 func _on_Next_pressed():
+	print("pressed next")
 	# We're in the intro
 	# "intro" will be the currently-displaying node
 	var curr = intro.get_node("Node%d" % intro_posn)
@@ -147,8 +150,12 @@ func _on_Next_pressed():
 	if next != null: # Next
 		curr.hide()
 		next.show()
+		# FIXME This is reeeeal kludgey but:
+		# The first node may be named for an audio file.  If it's not, we just get an error.  No big.
+		music_player.playAudio(next.get_child(0).name + ".wav", -12)
 	else:
 		intro_posn = INTRO_DONE
 		intro.hide()
 		gui.show()
+		music_player.playAudio("Secrets_of_the_Forest.ogg", -8)
 	
