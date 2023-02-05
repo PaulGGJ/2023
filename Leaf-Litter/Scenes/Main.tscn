@@ -889,8 +889,7 @@ one_way_collision = true
 one_way_collision_margin = 5.0
 
 [node name="PanToMap" type="KinematicBody2D" parent="TileMap/Triggers"]
-visible = false
-position = Vector2( 6430, -131 )
+position = Vector2( 6430, -267 )
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Triggers/PanToMap"]

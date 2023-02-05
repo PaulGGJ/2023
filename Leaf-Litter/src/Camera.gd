@@ -68,7 +68,7 @@ func _physics_process(delta):
 			var change_scale = cam.zoom < pan_end_scale
 			if change_y:
 				cam.position.y -= cam_speed
-				player.position.y -= cam_speed / 1.5
+				player.position.y -= cam_speed / 1.8
 			if change_scale:
 				cam.zoom *= 1.0 + (0.5 * delta)
 			if !change_y and !change_scale:
@@ -81,7 +81,7 @@ func _physics_process(delta):
 			var change_scale = cam.zoom > pan_end_scale
 			if change_y:
 				cam.position.y += cam_speed
-				player.position.y += cam_speed / 1.5
+				player.position.y += cam_speed / 1.8
 			if change_scale:
 				cam.zoom /= 1.0 + (0.5 * delta)
 			if !change_y and !change_scale:
