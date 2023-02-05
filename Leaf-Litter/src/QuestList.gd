@@ -28,7 +28,7 @@ func _ready():
 
 func randomize_quests():
 	var quest_count = QuestItem.get_count()
-	var tempQ = Util.XchooseY(quest_count-1, HUNT_SIZE)
+	var tempQ = Util.XchooseY(quest_count-2, HUNT_SIZE)
 	for q in tempQ:
 		quest_ids.push_back(q)
 
@@ -36,9 +36,12 @@ func remove_quest(target):
 	var i = 0
 	var removed = false
 	var size = quest_ids.size()
+	print("remove target", target)
 	while i < size and !removed:
+		print ("quest id ", quest_ids[i])
 		if target == quest_ids[i]:
 			removed = true
+			print("removing ", i)
 			quest_ids.remove(i)
 			quests.erase(target)
 		i = i + 1

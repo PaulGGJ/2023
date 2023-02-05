@@ -25,6 +25,7 @@ func _init(item_id):
 
 func add_object(o):
 	obj = o
+	obj.name = "%d" % id
 	# Set position, create a sprite, etc accordingly
 	set_tile(tile_x, tile_y)
 	set_tile(2, 4)

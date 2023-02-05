@@ -5,7 +5,7 @@ var found_ids = []
 var found_items = {}
 
 func _ready():
-	add_item(3)
+	add_item(15) # FIXME
 	reload()
 
 func add_item(i : int):
