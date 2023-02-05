@@ -56,7 +56,6 @@ func pan(to_y, to_scale):
 	pan_end_scale = to_scale
 func pan_complete():
 	togglePanColliders(true)
-	gui.show()
 	player_coll.position = player.position
 func togglePanCollider(obj_noun, e):
 	pass
@@ -97,6 +96,7 @@ func _physics_process(delta):
 				cam.zoom /= 1.0 + (0.5 * delta)
 			if !change_y and !change_scale:
 				pan_complete()
+				gui.show()
 				scene_mode = MODE.NORMAL
 	
 	# Or in regular movement mode
