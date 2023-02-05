@@ -21,6 +21,9 @@ func _physics_process(delta):
 		var collider = collision.collider
 		var layer = collider.get_collision_layer()
 		if layer == 2:
+			print("name: ", collider.name)
+			$GUI/Columns/InventoryList.add_item(int(collider.name))
+			$GUI/Columns/QuestList.remove_quest(int(collider.name))
 			collider.queue_free()
 
 	# Animate
