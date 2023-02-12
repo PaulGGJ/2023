@@ -120,8 +120,8 @@ func _physics_process(delta):
 				music_player.play_pickup()
 				$GUI/Columns/InventoryList.add_item(int(collider.name))
 				var collider_name = int(collider.name)
-				collider.queue_free()
 				popup_appear(collider_name)
+				collider.queue_free()
 			if layer == 4: # This is in bits, so 3 in interface = 3rd bit, 001 -> 100 so 4
 				if collider.name == "PanToTree":
 					pan_to_tree()
@@ -180,9 +180,10 @@ func popup_appear(i):
 			desc = item.descr_nature
 	"""
 	var quests = $GUI/Columns/QuestList.quests
+	if !quests.has(i):
+		return
 	var desc = quests[i].descr_nature
 	print("description: ", desc)
-	$GUI/Columns/QuestList.remove_quest(i)
 
 	var label = popup.get_node("Description")
 	label.text = desc
@@ -229,6 +230,7 @@ func popup_appear(i):
 	popup.rect_position.y = sy -150
 	
 	popup.visible = true;
+	$GUI/Columns/QuestList.remove_quest(i)
 	
 	#Copied out of quest item because yay
 
