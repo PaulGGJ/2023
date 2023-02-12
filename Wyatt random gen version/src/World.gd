@@ -24,13 +24,13 @@ var startPosition = Vector2()
 onready var tileMap = $TileMap
 #onready var playAgain = $CanvasLayer/PlayAgain
 
+var game : GlobalObject
 
-
-func initialize():
-#func _ready():
-	tileMap = GlobalObject.tile_map
+func initialize(g):
+	game = g
+	tileMap = game.tile_map
 	#place item near beginning
-	var someQuest = GlobalObject.quest_list.get_quest_by_pos(0)
+	var someQuest = game.quest_list.get_quest_by_pos(0)
 	someQuest.set_tile(24,0)
 	randomize()
 	generate_level()
@@ -61,8 +61,8 @@ func generate_level():
 	#for now, iterate through teh first 8 items of the quest list and place them in random rooms 
 	#of the corresponding path to the item's direction
 	i = 0
-	while i < 7 - 2: #added -2 as a test to try to get the right number of items spawning
-		var item = GlobalObject.quest_list.get_quest_by_pos(i)
+	while i < game.quest_list.quests.size():
+		var item = game.quest_list.get_quest_by_pos(i)
 		var dir = item.direction
 		var index = randi() % rooms[dir].size()   
 		var location = rooms[dir][index].position
@@ -71,6 +71,7 @@ func generate_level():
 #		# random wasn't working so commented this out: randi() % rooms[dir][index].size.y)
 		item.set_tile(location.x, location.y)
 		rooms[dir].remove(index)
+		print("spawned item ", i)
 		i += 1
 
 

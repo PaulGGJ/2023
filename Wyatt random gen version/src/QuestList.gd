@@ -6,9 +6,10 @@ var ScavengerItems
 const HUNT_SIZE = 8
 var quest_ids = []
 var quests = {}
+var game : GlobalObject
 
-func initialize():
-#func _ready():
+func initialize(g):
+	game = g
 	ScavengerItems = get_tree().get_root().find_node("ScavengerItems", true, false)
 	var quest_scene = load("res://Scenes/QuestItem.tscn")
 	# Fill quest data
