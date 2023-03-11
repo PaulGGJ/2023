@@ -23,6 +23,71 @@ static func pad(inString : String, c : String, n : int, before = false):
 		if before: s = c + s
 		else: s = s + c
 	return s
+
+static func wordifyWith0(n : int, s : String):
+	if n == 0:
+		return s
+	else:
+		return wordify(n)
+static func wordify(n : int):
+	var length = len("%d" % n)
+	if length == 1:
+		match n:
+			0:
+				return ""
+			1:
+				return "one"
+			2:
+				return "two"
+			3:
+				return "three"
+			4:
+				return "four"
+			5:
+				return "five"
+			6:
+				return "six"
+			7:
+				return "seven"
+			8:
+				return "eight"
+			9:
+				return "nine"
+	elif length <= 2:
+		var tens = n / 10
+		var ones = n % 10
+		if n < 10: # This shouldn't be possible, but maybe e.g. "04"??
+			return wordify(ones)
+		elif n < 20:
+			if n == 10:
+				return "ten"
+			elif n == 11:
+				return "eleven"
+			elif n == 12:
+				return "twelve"
+			elif n == 13:
+				return "thirteen"
+			else:
+				return wordify(ones) + "teen"
+		elif n < 30:
+			return "twenty-" + wordify(ones)
+		elif n < 40:
+			return "thirty-" + wordify(ones)
+		elif n < 50:
+			return "forty-" + wordify(ones)
+		elif n < 60:
+			return "fifty-" + wordify(ones)
+		else: #n >= 60:
+			return wordify(tens) + "ty-" + wordify(ones)
+	elif length <= 3:
+		return wordify (n / 100) + " hundred " + wordify(n % 100)
+	elif length <= 6:
+		return wordify (n / 1000) + " thousand " + wordify(n % 1000)
+	elif length <= 9:
+		return wordify (n / 1000000) + " million " + wordify(n % 1000000)
+	else:
+		return "a lot"
+	
 	
 # ===== Dates ===========================================================
 

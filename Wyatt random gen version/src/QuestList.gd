@@ -48,22 +48,25 @@ func remove_quest(target):
 			quest_ids.remove(i)
 			quests.erase(target)
 		i = i + 1
+	reload()
 
 var current_node
 func reload():
 	var template = get_node("QuestItem") # before it's removed
-	Util.deleteExtraChildren(self, 1)
+	#Util.deleteExtraChildren(self, 1)
 	# We are now displaying only the # of items in each direction, not all items with names
-	var count = [0, 0, 0]
-	for q in quests:
-		count[quests[q].direction] += 1
-	for dir in count.size():
-		#print ("Checking in %s" % dir)
-		current_node = template.duplicate()
-		var text = "%s: %d" % [QuestItem.direction_name[dir], count[dir]]
-		#print ("text %s " % text)
-		node("Name").text = text
-		add_child(current_node)
+	#var count = [0, 0, 0]
+	#for q in quests:
+	#	count[quests[q].direction] += 1
+	#for dir in count.size():
+	#	current_node = template.duplicate()
+	#	var text = "%s: %d" % [QuestItem.direction_name[dir], count[dir]]
+	#	node("Name").text = text
+	#	add_child(current_node)
+	# Arborent will now tell you this information, so I think it's actually
+	# more of an interesting game if you only get the highest-level info
+	template.get_node("Name").text = "Litter: %d" % quests.size()
+	
 		
 #	for q in quests:
 #		current_node = template.duplicate()

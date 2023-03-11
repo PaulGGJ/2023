@@ -1,0 +1,1 @@
+AB:I sense $west items in the west, $south in the south, and $east in the east.

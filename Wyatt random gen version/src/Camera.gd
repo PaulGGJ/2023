@@ -26,6 +26,27 @@ func start_intro():
 	gui.hide()
 	mgr.BeginScene("intro")
 
+func get_remaining():
+	var quests = $GUI/Columns/QuestList.quests
+	var num_in_dir = {}
+	for d in QuestItem.HUNT_DIR:
+		num_in_dir[QuestItem.HUNT_DIR[d]] = 0
+	for q in quests:
+		num_in_dir[quests[q].direction] += 1
+	return num_in_dir
+
+var game_over = false
+func game_win():
+	if game_over: # We already did this
+		 return false
+	else:
+		var quests = $GUI/Columns/QuestList.quests
+		game_over = quests.size() == 0
+		return game_over
+
+func wordify(n : int):
+	return Util.wordifyWith0(n, "no")
+
 enum MODE { NORMAL, PAN_UP, PAN_DOWN, CUTSCENE, DONESCENE }
 var scene_mode = MODE.NORMAL
 var pan_start_y        # We may be in progress of a pan from here...
@@ -37,7 +58,9 @@ var tree_y
 var map_scale
 var tree_scale
 func pan_to_tree():
-	if scene_mode == MODE.NORMAL:
+	if game_win():
+		mgr.BeginScene("conclusion")
+	elif scene_mode == MODE.NORMAL and !game_over:
 		gui.hide()
 		position.x = 3260
 		pan(tree_y, tree_scale)
@@ -80,10 +103,16 @@ func _physics_process(delta):
 				player.position.y -= cam_speed / 1.8
 			if change_scale:
 				cam.zoom *= 1.0 + (0.5 * delta)
-			if !change_y and !change_scale:
+			if !change_y and !change_scale and !game_over:
 				pan_complete()
 				scene_mode = MODE.CUTSCENE
-				#FIXME: Do some cutscene stuff
+				# Set direction variables
+				var num_in_dir = get_remaining()
+				mgr.SetVar("west", wordify(num_in_dir[QuestItem.HUNT_DIR.WEST]))
+				mgr.SetVar("east", wordify(num_in_dir[QuestItem.HUNT_DIR.EAST]))
+				mgr.SetVar("south", wordify(num_in_dir[QuestItem.HUNT_DIR.SOUTH]))
+				# And, play dialogue
+				mgr.BeginScene("hints")
 				scene_mode = MODE.DONESCENE
 		elif scene_mode == MODE.PAN_DOWN:
 			var change_y = cam.position.y < pan_end_y
@@ -165,38 +194,7 @@ func popup_appear(i):
 	var label = popup.get_node("Description")
 	label.text = desc
 	
-	var texture
-	if i == 0:
-		texture = preload("res://assets/litter/Ashen_Leaves.png")
-	elif i == 1:
-		texture = preload("res://assets/litter/Curse-Bearing_Cloth.png")
-	elif i == 2:
-		texture = preload("res://assets/litter/Disguising_Hood.png")
-	elif i == 3:
-		texture = preload("res://assets/litter/Eternal_Blade.png")
-	elif i == 4:
-		texture = preload("res://assets/litter/Eternal_Shield.png")
-	elif i == 5:
-		texture = preload("res://assets/litter/Foul_Brew.png")
-	elif i == 6:
-		texture = preload("res://assets/litter/Floating_Orb.png")
-	elif i == 7:
-		texture = preload("res://assets/litter/Gliding_Tool.png")
-	elif i == 8:
-		texture = preload("res://assets/litter/Mobile_Shelter.png")
-	elif i == 9:
-		texture = preload("res://assets/litter/Mysterious_Letter.png")
-	elif i == 10:
-		texture = preload("res://assets/litter/Odd_Effigy.png")
-	elif i == 11:
-		texture = preload("res://assets/litter/Rotting_Box.png")
-	elif i == 12:
-		texture = preload("res://assets/litter/Sixfold_Snare.png")
-	elif i == 13:
-		texture = preload("res://assets/litter/Tall_Staff.png")
-	elif i == 14:
-		texture = preload("res://assets/litter/Warriors_Boat.png")
-
+	var texture = Util.getTexture("Assets/litter/%s.png" % quests[i].image_file)
 	var sprite = popup.get_node("Sprite")
 	sprite.set_texture(texture)
 	

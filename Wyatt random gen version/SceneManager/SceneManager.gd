@@ -138,6 +138,12 @@ func GetVar(v):
 func SetVar(v, to):
 	variables[v] = to
 	print(variables)
+func ReplaceVars(s):
+	var result : String = s
+	for v in variables.keys():
+		result = result.replace("$" + v, variables[v])
+	result = result.replace("\n", '\n')
+	return result
 
 # Wait-related functions
 func WaitIncrement(seconds):
@@ -147,7 +153,7 @@ func Continue():
 	if mode == MODES.WAITING:
 		mode = MODES.RUNNING
 func _input(event):
-	if event.is_action_pressed("ui_skip") or event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept"):
 		Continue()
 	if event.is_action_pressed("ui_click") and visible == true:
 		Continue()
@@ -222,11 +228,12 @@ func BeginScene(script_name):
 				mode = MODES.RUNNING
 			cmd.TYPE.DIALOGUE:
 				var box = get_node("Speaker_Text")
-				box.text = cmd.dial_line
+				box.text = ReplaceVars(cmd.dial_line)
 				# This is quick-and-dirty, we'll want some scaffolding around this
 				if characters.has(cmd.dial_character):
 					var c : SceneCharacter = characters[cmd.dial_character]
 					$Speaker_Image.texture = c.GetEmotionTexture(cmd.dial_emotion)
+					box.set_position(c.dialogue_offset)
 					var font = GetFont(font_path, c.dialogue_fontname, "")
 					font.size = c.dialogue_fontsize
 					box.set("custom_fonts/font", font)

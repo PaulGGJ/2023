@@ -26,10 +26,8 @@ position = Vector2( 20, 300 )
 centered = false
 
 [node name="Speaker_Text" type="Label" parent="."]
-margin_left = 42.0
-margin_top = 290.0
-margin_right = 342.0
-margin_bottom = 390.0
+margin_right = 300.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
 autowrap = true
 
@@ -50,3 +48,51 @@ emotion_images = [ null ]
 dialogue_colour = Color( 0.878431, 0.611765, 0.196078, 1 )
 dialogue_fontname = "Montreal-Regular.ttf"
 dialogue_fontsize = 18
+dialogue_offset = Vector2( 42, 290 )
+
+[node name="Credits" type="Control" parent="Characters"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+character_abbreviation = "CREDITS"
+character_full_name = "Credits"
+emotion_keywords = [ "serious" ]
+emotion_images = [ null ]
+dialogue_colour = Color( 1, 1, 1, 1 )
+dialogue_fontname = "Montreal-Regular.ttf"
+dialogue_fontsize = 20
+dialogue_offset = Vector2( 180, 100 )
+
+[node name="Arborent" type="Control" parent="Characters"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+character_abbreviation = "A"
+character_full_name = "Arborent"
+emotion_keywords = [ "serious" ]
+emotion_images = [ null ]
+dialogue_colour = Color( 0.223529, 0.615686, 0.294118, 1 )
+dialogue_fontname = "Montreal-Regular.ttf"
+dialogue_fontsize = 18
+dialogue_offset = Vector2( 325, 255 )
+
+[node name="Arborent_Big" type="Control" parent="Characters"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+character_abbreviation = "AB"
+character_full_name = "Arborent"
+emotion_keywords = [ "serious" ]
+emotion_images = [ null ]
+dialogue_colour = Color( 0.223529, 0.615686, 0.294118, 1 )
+dialogue_fontname = "Montreal-Regular.ttf"
+dialogue_fontsize = 36
