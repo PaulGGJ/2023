@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SceneManager/SceneManager.gd" type="Script" id=1]
+[ext_resource path="res://SceneManager/SceneCharacter.gd" type="Script" id=2]
+
+[node name="SceneManager" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+background_path = "Assets/"
+sprite_path = "Assets/"
+font_path = "Assets/Fonts/"
+
+[node name="BG_Image" type="TextureRect" parent="."]
+margin_right = 605.0
+margin_bottom = 455.0
+expand = true
+stretch_mode = 7
+
+[node name="Music_Looper" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="."]
+
+[node name="Speaker_Image" type="Sprite" parent="."]
+position = Vector2( 20, 300 )
+centered = false
+
+[node name="Speaker_Text" type="Label" parent="."]
+margin_left = 42.0
+margin_top = 290.0
+margin_right = 342.0
+margin_bottom = 390.0
+rect_min_size = Vector2( 200, 100 )
+autowrap = true
+
+[node name="Characters" type="Node2D" parent="."]
+visible = false
+
+[node name="Treefoot" type="Control" parent="Characters"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+character_abbreviation = "NR"
+character_full_name = "Treefoot"
+emotion_keywords = [ "serious" ]
+emotion_images = [ null ]
+dialogue_colour = Color( 0.878431, 0.611765, 0.196078, 1 )
+dialogue_fontname = "Montreal-Regular.ttf"
+dialogue_fontsize = 18

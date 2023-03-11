@@ -4,7 +4,7 @@
 [ext_resource path="res://src/QuestList.gd" type="Script" id=2]
 [ext_resource path="res://assets/squirrel.png" type="Texture" id=3]
 [ext_resource path="res://src/InventoryList.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Intro.tscn" type="PackedScene" id=5]
+[ext_resource path="res://SceneManager/SceneManager.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -24,8 +24,6 @@ hframes = 3
 [node name="PlayerCollider" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1.5 )
 shape = SubResource( 1 )
-
-[node name="Intro" parent="." instance=ExtResource( 5 )]
 
 [node name="GUI" type="Control" parent="."]
 margin_left = -300.0
@@ -148,3 +146,10 @@ text = "Found"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SceneManager" parent="." instance=ExtResource( 6 )]
+margin_left = -304.0
+margin_top = -227.0
+margin_right = -304.0
+margin_bottom = -227.0
+script_path = "scripts/"

@@ -5,7 +5,7 @@ onready var player = $Player
 onready var player_coll = $PlayerCollider
 onready var cam = $Camera2D
 onready var gui = $GUI
-onready var intro = $Intro
+onready var mgr = $SceneManager
 var music_player
 var SPEED = 36000.0
 
@@ -24,8 +24,7 @@ func _ready():
 	
 func start_intro():
 	gui.hide()
-	var audio_file = intro.get_node("Node0").get_child(0).name + ".wav"
-	music_player.playAudio(audio_file, -12)
+	mgr.BeginScene("intro")
 
 enum MODE { NORMAL, PAN_UP, PAN_DOWN, CUTSCENE, DONESCENE }
 var scene_mode = MODE.NORMAL
@@ -143,28 +142,6 @@ func _physics_process(delta):
 			music_player.play_walking()
 		else:
 			music_player.stop_walking()
-	
-const INTRO_DONE = -1
-var intro_posn : int = 0
-func _on_Next_pressed():
-	print("pressed next")
-	# We're in the intro
-	# "intro" will be the currently-displaying node
-	var curr = intro.get_node("Node%d" % intro_posn)
-	intro_posn += 1
-	var next = intro.get_node("Node%d" % intro_posn)
-	if next != null: # Next
-		curr.hide()
-		next.show()
-		# FIXME This is reeeeal kludgey but:
-		# The first node may be named for an audio file.  If it's not, we just get an error.  No big.
-		music_player.playAudio(next.get_child(0).name + ".wav", -12)
-	else:
-		intro_posn = INTRO_DONE
-		intro.hide()
-		gui.show()
-		music_player.setMainMusic("Secrets_of_the_Forest.ogg", -4)
-		music_player.playMainMusic()
 	
 func popup_appear(i):
 	var root = get_parent().get_parent()

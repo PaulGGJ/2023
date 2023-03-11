@@ -866,13 +866,13 @@ tile_data = PoolIntArray( -327656, 3, 0, -327655, 3, 0, -327654, 3, 0, -262120, 
 position = Vector2( 3261.5, -617 )
 texture = ExtResource( 4 )
 
+[node name="ScavengerItems" type="Node2D" parent="TileMap"]
+position = Vector2( 5, 11 )
+
 [node name="PlayerAndGUI" parent="TileMap" instance=ExtResource( 3 )]
 position = Vector2( 3257, 4 )
 scale = Vector2( 1, 1 )
 collision_mask = 3
-
-[node name="ScavengerItems" type="Node2D" parent="TileMap"]
-position = Vector2( 5, 11 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="TileMap"]
 script = ExtResource( 2 )
@@ -903,7 +903,6 @@ one_way_collision = true
 one_way_collision_margin = 5.0
 
 [node name="ArtifactFound" type="AcceptDialog" parent="."]
-visible = true
 margin_left = 55.0
 margin_top = -5.0
 margin_right = 615.0
