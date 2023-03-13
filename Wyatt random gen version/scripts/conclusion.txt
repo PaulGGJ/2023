@@ -13,7 +13,7 @@ CREDITS:Writing: Jessie
 CREDITS:Composition & Sound Effects: Tara St. Michel
 CREDITS:Art: Jo Michaelis
 CREDITS:Programming: Laura Smart
-CREDITS:Programming: Wyatt
+CREDITS:Programming: Wyatt Will
 CREDITS:Programming: Paul Smart
 CREDITS:
 ...2

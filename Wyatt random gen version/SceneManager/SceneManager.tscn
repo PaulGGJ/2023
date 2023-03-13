@@ -80,7 +80,7 @@ emotion_images = [ null ]
 dialogue_colour = Color( 0.223529, 0.615686, 0.294118, 1 )
 dialogue_fontname = "Montreal-Regular.ttf"
 dialogue_fontsize = 18
-dialogue_offset = Vector2( 325, 255 )
+dialogue_offset = Vector2( 290, 255 )
 
 [node name="Arborent_Big" type="Control" parent="Characters"]
 margin_right = 40.0
